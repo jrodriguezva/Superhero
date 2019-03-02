@@ -1,0 +1,75 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!-- enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="BaseToolbarStyle">
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:theme">@style/BaseToolbarTheme</item>
+    </style>
+
+    <style name="BaseToolbarTheme">
+        <item name="android:textColorPrimary">@color/appbarTextColor</item>
+        <item name="android:textColorSecondary">@color/secondaryColor</item>
+    </style>
+
+
+    <style name="SuperheroImage">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:transitionName">feedImageTransition</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="SuperheroItemTitle">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/superhero_item_title</item>
+    </style>
+
+
+    <style name="SuperheroItemText">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">@dimen/superhero_item_detail</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:freezesText">true</item>
+    </style>
+
+
+    <style name="SuperheroDetailsTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/superhero_item_title</item>
+        <item name="android:paddingRight">@dimen/spacing_large</item>
+        <item name="android:paddingLeft">@dimen/spacing_large</item>
+    </style>
+
+    <style name="SuperheroDetailsText" parent="SuperheroDetailsTitle">
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:textSize">@dimen/superhero_item_detail</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:paddingBottom">@dimen/spacing_large</item>
+        <item name="android:freezesText">true</item>
+    </style>
+
+    <style name="SuperheroDetailsNotes" parent="SuperheroDetailsTitle">
+        <item name="android:textColor">@color/tertiaryTextColor</item>
+        <item name="android:textSize">@dimen/superhero_item_detail</item>
+        <item name="android:paddingBottom">@dimen/spacing_large</item>
+        <item name="android:freezesText">true</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+</resources>

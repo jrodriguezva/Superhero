@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+apply plugin: 'jacoco'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'kotlin-allopen'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+
+    defaultConfig {
+        applicationId "com.jrodriguezva.superhero"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    dataBinding {
+        enabled = true
+    }
+    buildTypes {
+        debug {
+            buildConfigField "String", "BASE_URL", "\"https://api.myjson.com/\""
+        }
+        release {
+            minifyEnabled false
+            buildConfigField "String", "BASE_URL", "\"https://api.myjson.com/\""
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation deps.kotlin.stdlib
+    implementation deps.androidx.app_compat
+    implementation deps.androidx.core_ktx
+    implementation deps.androidx.constraintlayout
+    implementation deps.androidx.recyclerview
+    implementation deps.androidx.cardview
+    implementation deps.androidx.material
+
+    implementation deps.dagger.android_support
+    kapt deps.dagger.compiler
+    kapt deps.dagger.android_processor
+
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.moshi
+
+    implementation deps.coroutines.core
+    implementation deps.coroutines.android
+
+    implementation deps.glide.runtime
+    kapt deps.glide.compiler
+
+    implementation deps.ktx
+    implementation deps.spinkit
+    implementation deps.lifecycle.extensions
+    implementation deps.lifecycle.runtime
+    kapt deps.lifecycle.compiler
+
+    implementation deps.room.runtime
+    implementation deps.room.coroutines
+    kapt deps.room.compiler
+
+    implementation deps.stetho
+    implementation deps.stetho_okhttp
+    implementation deps.timber
+
+    testImplementation deps.kotlin.test
+    androidTestImplementation 'androidx.test:runner:1.1.2-alpha4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.2-alpha01'
+}

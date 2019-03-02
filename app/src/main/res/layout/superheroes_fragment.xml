@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.jrodriguezva.superhero.ui.superheroes.SuperheroesViewModel" />
+    </data>
+
+
+    <com.jrodriguezva.superhero.utils.ScrollChildSwipeRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:onRefreshListener="@{() -> viewModel.refresh()}"
+        app:refreshing="@{viewModel.dataLoading}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="@{viewModel.empty ? View.GONE : View.VISIBLE}"
+                app:items="@{viewModel.superheroes}" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/noTasksIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:gif="@{@drawable/wrong}"
+                android:visibility="@{!viewModel.isDataLoadingError ? View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spinKit"
+            style="@style/SpinKitView.Large.Circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:SpinKit_Color="@color/colorAccent" />
+    </com.jrodriguezva.superhero.utils.ScrollChildSwipeRefreshLayout>
+
+</layout>
