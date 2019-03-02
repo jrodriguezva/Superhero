@@ -11,18 +11,18 @@ class SuperheroesLocalDataSource @Inject constructor(val superheroDao: Superhero
     override suspend fun getSuperheroes(): Either<GetSuperheroesFailure, List<Superhero>> =
         superheroDao.getSuperheroes()?.let { superheroesModel ->
             return when {
-                superheroesModel.isEmpty() -> Either.Left(GetSuperheroesFailure.SuperheroesNotFound())
+                superheroesModel.isEmpty() -> Either.Left(GetSuperheroesFailure.SuperheroesNotFound)
                 else -> Either.Right(superheroesModel.map { it.convertToDomain() })
             }
         }
             ?: kotlin.run {
-                return Either.Left(GetSuperheroesFailure.SuperheroesNotFound())
+                return Either.Left(GetSuperheroesFailure.SuperheroesNotFound)
             }
 
 
     override suspend fun getSuperhero(superheroId: Long): Either<GetSuperheroFailure, Superhero> {
         superheroDao.getSuperhero(superheroId)?.let { superheroModel -> return Either.Right(superheroModel.convertToDomain()) }
-            ?: kotlin.run { return Either.Left(GetSuperheroFailure.SuperheroNotFound()) }
+            ?: kotlin.run { return Either.Left(GetSuperheroFailure.SuperheroNotFound) }
     }
 
 

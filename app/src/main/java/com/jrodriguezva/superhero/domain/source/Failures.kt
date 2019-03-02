@@ -1,11 +1,11 @@
 package com.jrodriguezva.superhero.domain.source
 
 sealed class GetSuperheroesFailure {
-    class NetworkConnection : GetSuperheroesFailure()
-    class SuperheroesNotFound : GetSuperheroesFailure()
+    object NetworkConnection : GetSuperheroesFailure()
+    object SuperheroesNotFound : GetSuperheroesFailure()
 }
 
 sealed class GetSuperheroFailure {
-    class SuperheroNotFound : GetSuperheroFailure()
-    class NotImplementedError : GetSuperheroFailure()
+    object SuperheroNotFound : GetSuperheroFailure()
+    object NotImplementedError : GetSuperheroFailure()
 }

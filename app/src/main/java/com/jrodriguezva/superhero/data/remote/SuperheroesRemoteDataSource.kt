@@ -13,10 +13,10 @@ class SuperheroesRemoteDataSource @Inject constructor(val api: WebService) : Sup
             response.body()
                 ?.let { superheroes -> return Either.Right(superheroes.superheroes.map { it.convertToDomain() }) }
                 ?: kotlin.run {
-                    return Either.Left(GetSuperheroesFailure.SuperheroesNotFound())
+                    return Either.Left(GetSuperheroesFailure.SuperheroesNotFound)
                 }
         } else {
-            return Either.Left(GetSuperheroesFailure.NetworkConnection())
+            return Either.Left(GetSuperheroesFailure.NetworkConnection)
         }
     }
 }

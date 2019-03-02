@@ -8,7 +8,7 @@ interface SuperheroesDataSource {
     suspend fun getSuperheroes(): Either<GetSuperheroesFailure, List<Superhero>>
 
     suspend fun getSuperhero(superheroId: Long): Either<GetSuperheroFailure, Superhero> {
-        return Either.Left(GetSuperheroFailure.NotImplementedError())
+        return Either.Left(GetSuperheroFailure.NotImplementedError)
     }
 
     suspend fun saveSuperhero(superhero: Superhero) {}
