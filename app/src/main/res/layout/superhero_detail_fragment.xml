@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.jrodriguezva.superhero.ui.superheroes.SuperheroDetailViewModel" />
+            type="com.jrodriguezva.superhero.ui.superhero.SuperheroDetailViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

@@ -1,4 +1,4 @@
-package com.jrodriguezva.superhero.utils
+package com.jrodriguezva.superhero.domain.funtional
 
 sealed class Either<out L, out R> {
     //Failure
@@ -15,12 +15,6 @@ sealed class Either<out L, out R> {
 }
 
 fun <L, R, T> Either<L, R>.fold(left: (L) -> T, right: (R) -> T): T =
-    when (this) {
-        is Either.Left -> left(value)
-        is Either.Right -> right(value)
-    }
-
-suspend fun <L, R, T> Either<L, R>.foldSuspend(left: suspend (L) -> T, right: suspend (R) -> T): T =
     when (this) {
         is Either.Left -> left(value)
         is Either.Right -> right(value)

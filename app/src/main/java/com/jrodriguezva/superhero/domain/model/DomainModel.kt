@@ -1,5 +1,8 @@
 package com.jrodriguezva.superhero.domain.model
 
+import com.jrodriguezva.superhero.testing.OpenForTesting
+
+@OpenForTesting
 data class Superhero(
     var id: Long? = null,
     var name: String,

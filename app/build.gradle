@@ -6,6 +6,10 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-allopen'
 apply plugin: 'kotlin-android-extensions'
 
+allOpen {
+    // allows mocking for classes w/o directly opening them for release builds
+    annotation 'com.jrodriguezva.superhero.testing.OpenClass'
+}
 android {
     compileSdkVersion build_versions.target_sdk
 
@@ -34,12 +38,15 @@ android {
 
 dependencies {
     implementation deps.kotlin.stdlib
+    implementation deps.kotlin.allopen
+
     implementation deps.androidx.app_compat
     implementation deps.androidx.core_ktx
     implementation deps.androidx.constraintlayout
     implementation deps.androidx.recyclerview
     implementation deps.androidx.cardview
     implementation deps.androidx.material
+
 
     implementation deps.dagger.android_support
     kapt deps.dagger.compiler
@@ -69,6 +76,15 @@ dependencies {
     implementation deps.timber
 
     testImplementation deps.kotlin.test
-    androidTestImplementation 'androidx.test:runner:1.1.2-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.2-alpha01'
+    testImplementation deps.mockito.core
+
+    testImplementation deps.kluent.jmv
+    testImplementation deps.arch_core.testing
+    testImplementation deps.kluent.android
+
+    androidTestImplementation deps.espresso.core
+    androidTestImplementation deps.espresso.contrib
+    implementation deps.espresso.idling
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.atsl.rules
 }

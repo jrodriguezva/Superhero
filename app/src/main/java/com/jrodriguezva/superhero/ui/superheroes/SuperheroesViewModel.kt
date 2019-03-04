@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.jrodriguezva.superhero.domain.model.Superhero
 import com.jrodriguezva.superhero.domain.usecase.GetSuperheroesUseCase
 import com.jrodriguezva.superhero.domain.usecase.RefreshSuperheroesUseCase
-import com.jrodriguezva.superhero.utils.fold
+import com.jrodriguezva.superhero.domain.funtional.fold
 import javax.inject.Inject
 
 class SuperheroesViewModel @Inject constructor(

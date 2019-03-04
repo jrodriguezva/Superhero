@@ -2,7 +2,7 @@ package com.jrodriguezva.superhero.di.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.jrodriguezva.superhero.ui.superheroes.SuperheroDetailViewModel
+import com.jrodriguezva.superhero.ui.superhero.SuperheroDetailViewModel
 import com.jrodriguezva.superhero.ui.superheroes.SuperheroesViewModel
 import dagger.Binds
 import dagger.Module

@@ -14,6 +14,7 @@ import com.bumptech.glide.request.target.SizeReadyCallback
 import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
 import com.bumptech.glide.request.transition.Transition
+import com.jrodriguezva.superhero.utils.GlideApp
 
 
 fun View.cancelTransition() {
@@ -35,20 +36,20 @@ fun ViewGroup.inflate(@LayoutRes layoutRes: Int): View =
 
 
 fun ImageView.loadFromUrl(url: String) =
-    Glide.with(this.context.applicationContext)
+    GlideApp.with(this.context.applicationContext)
         .load(url)
         .transition(DrawableTransitionOptions.withCrossFade())
         .into(this)
 
 fun ImageView.loadFromUrl(url: String, @DrawableRes placeholder: Int) =
-    Glide.with(this.context.applicationContext)
+    GlideApp.with(this.context.applicationContext)
         .load(url)
-        .error(Glide.with(this.context.applicationContext).load(placeholder))
+        .error(GlideApp.with(this.context.applicationContext).load(placeholder))
         .transition(DrawableTransitionOptions.withCrossFade())
         .into(this)
 
 fun ImageView.loadFromGif(gif: Drawable) =
-    Glide.with(this.context.applicationContext)
+    GlideApp.with(this.context.applicationContext)
         .load(gif)
         .transition(DrawableTransitionOptions.withCrossFade())
         .into(this)
@@ -58,7 +59,7 @@ fun ImageView.loadUrlAndPostponeEnterTransition(url: String, activity: androidx.
         this,
         activity
     )
-    Glide.with(context.applicationContext).load(url).into(target)
+    GlideApp.with(context.applicationContext).load(url).into(target)
 }
 
 private class ImageViewBaseTarget(var imageView: ImageView?, var activity: androidx.fragment.app.FragmentActivity?) :

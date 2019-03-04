@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.jrodiriguezva.rsskotlin.presentation.base.BaseFragment
 import com.jrodriguezva.superhero.databinding.SuperheroDetailFragmentBinding
 import com.jrodriguezva.superhero.domain.model.Superhero
-import com.jrodriguezva.superhero.ui.superheroes.SuperheroDetailViewModel
 import com.jrodriguezva.superhero.utils.extension.loadUrlAndPostponeEnterTransition
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.superhero_detail_fragment.*

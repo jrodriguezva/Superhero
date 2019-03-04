@@ -7,9 +7,9 @@ import androidx.room.Query
 interface SuperheroDao : BaseDao<SuperheroModel> {
 
     @Query("SELECT * FROM SUPERHEROES WHERE id = :id")
-    suspend fun getSuperhero(id: Long): SuperheroModel?
+    fun getSuperhero(id: Long): SuperheroModel?
 
     @Query("SELECT * FROM SUPERHEROES")
-    suspend fun getSuperheroes(): List<SuperheroModel>?
+    fun getSuperheroes(): List<SuperheroModel>?
 
 }
