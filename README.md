@@ -8,9 +8,6 @@ Clone this repository and import into **Android Studio**
 git clone https://github.com/jrodriguezva/Superhero.git
 ```
 
-## Build variants
-Use the Android Studio *Build Variants* button to choose between **production** and **staging** flavors combined with debug and release build types
-
 
 ## Generating signed APK
 From Android Studio:
